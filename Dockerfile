@@ -13,7 +13,7 @@ COPY ./webapp/images /usr/share/nginx/html/images
 
 EXPOSE 80
 
-#running the nginx webserver in the foreground mode to keep the container running without exiting
+#running the nginx webserver in  foreground mode to keep the container running without exiting
 
 CMD ["nginx", "-g", "daemon off;"]
 
