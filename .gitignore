@@ -1,0 +1,11 @@
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+
+
+.terraformrc
+terraform.rc
+
+.DS_Store
