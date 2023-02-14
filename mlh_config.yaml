@@ -1,0 +1,46 @@
+# Deployment config file for my MLH webapp
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # name of the deployment
+  name: mlh-webapp-deployment
+spec:
+  # number of replicas to be created
+  replicas: 3
+  selector:
+    matchLabels:
+      # label to identify the pods in this deployment
+      app: mlh
+  template:
+    metadata:
+      labels:
+        # label to identify the pods in this deployment
+        app: mlh
+    spec:
+      containers:
+      - name: mlh-webapp
+        # Docker image used to create the pods
+        image: arunbingari/docker_mlh
+        ports:
+        # port exposed by the container
+        - containerPort: 80
+
+---
+
+# Service specification for the MLH webapp
+apiVersion: v1
+kind: Service
+metadata:
+  # name of the service
+  name: mlh-webapp-service
+spec:
+  selector:
+    # label to identify the pods in this service
+    app: mlh
+  ports:
+  # port details for the service
+  - name: webapp
+    port: 80
+    targetPort: 80
+  # type of service - ClusterIP in this case
+  type: loadBalancer
