@@ -13,11 +13,11 @@ Terraform installed on your machine.
 ### Docker
 ### To build the Docker image, navigate to the root directory of the project and run the following command:
 
-docker build -t <docker-hub-username>/<image-name>:<tag> .
+    docker build -t <docker-hub-username>/<image-name>:<tag> .
 
 ### Once the image has been built, push it to Docker Hub using the following command:
 
-docker push <docker-hub-username>/<image-name>:<tag>
+    docker push <docker-hub-username>/<image-name>:<tag>
 
 ### Terraform
 ### To create an EKS cluster using Terraform, navigate to the terraform directory and run the following commands:
@@ -34,15 +34,15 @@ docker push <docker-hub-username>/<image-name>:<tag>
     terraform apply -var-file terraform-dev.tfvars
 ### Run the following command to update your kubectl configuration with the credentials for the EKS cluster:
 
- aws eks update-kubeconfig --name <cluster-name>
+    aws eks update-kubeconfig --name <cluster-name>
 
 ### Run the following command to verify that kubectl is configured to communicate with the EKS cluster:
 
-kubectl cluster-info
+    kubectl cluster-info
 
 ### apply configuration file to  the Kubernetes cluster using the following command:
 
-kubectl apply -f <deployment-file-name>.yaml
+    kubectl apply -f <deployment-file-name>.yaml
 
 
 
